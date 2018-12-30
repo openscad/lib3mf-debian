@@ -1,0 +1,5 @@
+0001-Fix-handling-of-installation-dirs-using-official-set.patch
+0002-Use-project-version-setting-requires-cmake-3.0.2.patch
+0003-Add-options-to-disable-included-zlib-and-libzip.patch
+0004-Add-pkg-config-definition.patch
+0005-Move-NMR_COMVersion.h-to-global-.gitignore-file-to-c.patch

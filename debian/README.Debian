@@ -1,0 +1,7 @@
+lib3mf for Debian
+
+The upstream library embeds the libzip and zlib libraries.
+Both are removed from the Debian build, so it is required
+to add both to the linker flags.
+
+ -- Torsten Paul <Torsten.Paul@gmx.de>  Sat, 29 Dec 2018 12:33:54 +0100

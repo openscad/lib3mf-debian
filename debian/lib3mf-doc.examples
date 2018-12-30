@@ -1,0 +1,5 @@
+SDK/Examples/Files
+SDK/Examples/Source
+SDK/Examples/CMakeLists.txt
+SDK/Examples/GenerateMake.sh
+SDK/Examples/GenerateVS2015.bat

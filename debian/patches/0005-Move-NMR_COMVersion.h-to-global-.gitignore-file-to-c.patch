@@ -1,0 +1,30 @@
+From a9944ccb5388e4902fcc4c8a9a488c8e14b8b79e Mon Sep 17 00:00:00 2001
+From: Torsten Paul <Torsten.Paul@gmx.de>
+Date: Sat, 29 Dec 2018 22:40:55 +0100
+Subject: [PATCH 5/5] Move NMR_COMVersion.h to global .gitignore file to clean
+ up installation.
+
+---
+ .gitignore                   | 1 +
+ Include/Model/COM/.gitignore | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 Include/Model/COM/.gitignore
+
+diff --git a/.gitignore b/.gitignore
+index 5541943..dcb17f6 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,2 +1,3 @@
+ build
+ lib3MF.pc
++Include/Model/COM/NMR_COMVersion.h
+diff --git a/Include/Model/COM/.gitignore b/Include/Model/COM/.gitignore
+deleted file mode 100644
+index cf08148..0000000
+--- a/Include/Model/COM/.gitignore
++++ /dev/null
+@@ -1 +0,0 @@
+-NMR_COMVersion.h
+-- 
+2.19.2
+

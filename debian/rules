@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DCMAKE_INSTALL_INCLUDEDIR=include/lib3mf \
+		-DUSE_INCLUDED_ZLIB=OFF \
+		-DUSE_INCLUDED_LIBZIP=OFF \
+		-DLIB3MF_TESTS=FALSE

@@ -1,0 +1,71 @@
+From 87b9fd3d51188bf6b2b07ab7b153507c7cf3aa14 Mon Sep 17 00:00:00 2001
+From: Torsten Paul <Torsten.Paul@gmx.de>
+Date: Sat, 29 Dec 2018 22:28:57 +0100
+Subject: [PATCH 3/5] Add options to disable included zlib and libzip.
+
+---
+ CMakeLists.txt        |  3 +++
+ Source/CMakeLists.txt | 22 ++++++++++------------
+ 2 files changed, 13 insertions(+), 12 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 868e161..4072dd8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,6 +18,9 @@ include(GNUInstallDirs)
+ # use the cmake option -DNMR_COM_NATIVE:BOOL=ON to build the COM interface
+ option(NMR_COM_NATIVE "Implement a COM interface" OFF)
+ 
++option(USE_INCLUDED_ZLIB "Use included zlib" ON)
++option(USE_INCLUDED_LIBZIP "Use included libzip" ON)
++
+ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+   # using GCC
+   add_definitions(-DBUILD_DLL)
+diff --git a/Source/CMakeLists.txt b/Source/CMakeLists.txt
+index cd23835..7b8b08a 100644
+--- a/Source/CMakeLists.txt
++++ b/Source/CMakeLists.txt
+@@ -1,4 +1,11 @@
+-file(GLOB LIBZIP_FILES ./Source/Libraries/libzip/*.c)
++if (USE_INCLUDED_LIBZIP)
++	file(GLOB LIBZIP_FILES ./Source/Libraries/libzip/*.c)
++endif()
++
++if (USE_INCLUDED_ZLIB)
++	file(GLOB ZLIB_FILES ./Source/Libraries/zlib/*.c)
++endif()
++
+ if(NMR_COM_NATIVE)
+ 	# sources for native COM implementation
+ 	set(SRCS_COM
+@@ -29,6 +36,7 @@ set(SRCS_UNIX_MAIN
+ ./Source/Main/main.cpp
+ )
+ 
++
+ set(SRCS_COMMON
+ ${SRCS_COM}
+ ./Source/Common/3MF_ProgressMonitor.cpp
+@@ -77,17 +85,7 @@ ${SRCS_COM}
+ ./Source/Common/Platform/NMR_XmlReader.cpp
+ ./Source/Common/Platform/NMR_XmlWriter.cpp
+ ./Source/Common/Platform/NMR_XmlWriter_Native.cpp
+-./Source/Libraries/zlib/adler32.c
+-./Source/Libraries/zlib/compress.c
+-./Source/Libraries/zlib/crc32.c
+-./Source/Libraries/zlib/deflate.c
+-./Source/Libraries/zlib/infback.c
+-./Source/Libraries/zlib/inffast.c
+-./Source/Libraries/zlib/inflate.c
+-./Source/Libraries/zlib/inftrees.c
+-./Source/Libraries/zlib/trees.c
+-./Source/Libraries/zlib/uncompr.c
+-./Source/Libraries/zlib/zutil.c
++${ZLIB_FILES}
+ ./Source/Model/Classes/NMR_PackageResourceID.cpp
+ ./Source/Model/Classes/NMR_Model.cpp
+ ./Source/Model/Classes/NMR_ModelAttachment.cpp
+-- 
+2.19.2
+

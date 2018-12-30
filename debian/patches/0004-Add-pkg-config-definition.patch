@@ -1,0 +1,56 @@
+From d398aa0f7d3e8fd3554b9c496d70e6beb6f1ea85 Mon Sep 17 00:00:00 2001
+From: Torsten Paul <Torsten.Paul@gmx.de>
+Date: Sat, 29 Dec 2018 22:07:57 +0100
+Subject: [PATCH 4/5] Add pkg-config definition.
+
+---
+ .gitignore     |  1 +
+ CMakeLists.txt |  5 +++++
+ lib3MF.pc.in   | 12 ++++++++++++
+ 3 files changed, 18 insertions(+)
+ create mode 100644 lib3MF.pc.in
+
+diff --git a/.gitignore b/.gitignore
+index 378eac2..5541943 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1 +1,2 @@
+ build
++lib3MF.pc
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4072dd8..60e854c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -142,6 +142,11 @@ install(DIRECTORY Include/Common DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/Include/ DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+ 
+ #########################################################
++configure_file(lib3MF.pc.in lib3MF.pc @ONLY)
++install(FILES ${CMAKE_BINARY_DIR}/lib3MF.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
++
++#########################################################
++option(LIB3MF_TESTS "Switch whether the tests of Lib3MF should be build" ON)
+ if(NOT DEFINED LIB3MF_TESTS)
+ 	set(LIB3MF_TESTS TRUE)
+ endif()
+diff --git a/lib3MF.pc.in b/lib3MF.pc.in
+new file mode 100644
+index 0000000..9afb6ee
+--- /dev/null
++++ b/lib3MF.pc.in
+@@ -0,0 +1,12 @@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=@CMAKE_INSTALL_PREFIX@
++libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: @PROJECT_NAME@
++Description: @PROJECT_DESCRIPTION@
++Version: @PROJECT_VERSION@
++
++Requires:
++Libs: -L${libdir} -l3MF -lzip -lz
++Cflags: -I${includedir}
+-- 
+2.19.2
+
