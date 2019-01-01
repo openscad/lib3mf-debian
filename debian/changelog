@@ -1,5 +1,5 @@
-lib3mf (1.8.0+ds-1) UNRELEASED; urgency=low
+lib3mf (1.8.0+ds-1) unstable; urgency=low
 
-  * Initial release. Closes: #917649
+  * Initial release. (Closes: #917649)
 
- -- Torsten Paul <Torsten.Paul@gmx.de>  Sat, 29 Dec 2018 12:33:54 +0100
+ -- Torsten Paul <Torsten.Paul@gmx.de>  Tue, 01 Jan 2019 15:47:11 +0100
