@@ -1,3 +1,17 @@
+lib3mf (1.8.1+ds-1) unstable; urgency=medium
+
+  * New upstream version 1.8.1
+  * Drop all patches as all changes are included upstream now via
+    https://github.com/3MFConsortium/lib3mf/pull/114
+  * Add upstream NEWS from github release page
+  * Add Files-Excluded for removed libzip and zlib source
+  * Address more of the pedantic lintian warnings
+  * Update symbol file using pkgkde-symbolshelper
+  * Bump debhelper compatibility to version 12
+  * Bump standards version to 4.3.0
+
+ -- Torsten Paul <Torsten.Paul@gmx.de>  Sun, 13 Jan 2019 19:22:14 +0100
+
 lib3mf (1.8.0+ds-1) unstable; urgency=low
 
   * Initial release. (Closes: #917649)
