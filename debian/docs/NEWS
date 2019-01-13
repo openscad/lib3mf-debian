@@ -1,0 +1,47 @@
+# lib3mf 1.8.1 (2019-01-08)
+
+## Changes compared to version 1.1.5
+
+* Lib3MF now can be build using MinGW (compiled binaries are not part of the releases)
+* Added new functions to query/modify the tilestyle-property of textures (ad99e8e)
+* Added new functions to query/modify the filter-property of textures (ad99e8e)
+* Added the UTF-8 variant of ModelReaders' getwarning function (f28c2de)
+* Added the object type "surface" (4ba4ae5)
+* Added missing metadata-key "Application" (2f7166f)
+* Slicestacks can now live on components-objects in accordance to the slice specification (069e3c6)
+* inconsistent ZIP files now cause warnings (f4d873e)
+* Bugfixes:
+    * Fixed error in conversion from UTF-8 to UTF-16 (3b26657, 03cfd49)
+    * Potential access violation was removed (c14fa32)
+    * Potential memory leak has been resolved (dcfd8a2)
+    * Fixed setting of beamindices (9c49186)
+
+# lib3mf 1.1.5 (2018-04-24)
+
+## Milestones
+
+* Support for the beamlattice extension of 3MF: https://3mf.io/beam-lattice-extension:
+* Implementation is complete except for properties on beams
+* Lib3MF can now export files using the ZIP64-extension to the zip format (see https://en.wikipedia.org/wiki/Zip_(file_format)#ZIP64 ). This is the default now.
+* Reduced memory consumption while reading 3MFs by using a callback-stream instead of a memory stream
+* Progress-Callback for reading and writing 3MFs
+* Bugfixes:
+    * UUIDs are generated correctly under UNIX (48ea4c6)
+    * Improved error handling for unknown elements in a 3MF (e.g. multiproperties) (db172da)
+    * Removed possibility to export slices that are violating the specification (2c05668)
+    * Fixed reading of texture Ids (0ee1982)
+    * Increased default precision for floating point export (8ef8fd6)
+
+# lib3mf 1.0.0 (2018-01-17)
+
+## Milestones
+
+* Slice-Extension
+* Production-Extension
+* Required Extensions
+* Warning-levels and strict-mode
+* Large number of bugfixes
+* Improved stability and more tests (using googletest)
+* Improved platform independence
+
+First release with new versioning scheme (mostly following https://semver.org/). Starting with 1.0.0 in favor of the previous one-number version 67.
