@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: lib3mf
 Source: https://github.com/3MFConsortium/lib3mf
+Files-Excluded: Source/Libraries/libzip/* Source/Libraries/zlib/*
 
 Files: *
 Copyright: Copyright (C) 2018 3MF Consortium
