@@ -1,3 +1,10 @@
+lib3mf (1.8.1+ds-2) unstable; urgency=medium
+
+  * Update symbol file for hurd, kfreebsd, powerpc and ppc64
+  * Fix lintian warning symbols-file-missing-build-depends-package-field
+
+ -- Torsten Paul <Torsten.Paul@gmx.de>  Sun, 20 Jan 2019 18:42:40 +0100
+
 lib3mf (1.8.1+ds-1) unstable; urgency=medium
 
   * New upstream version 1.8.1
