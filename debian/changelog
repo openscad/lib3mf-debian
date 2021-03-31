@@ -1,3 +1,17 @@
+lib3mf (1.8.1+ds-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Joel Ray Holveck ]
+  * Include the links to libzip and zlib in the .so file, so the
+    dependency system can find them.
+  * Remove symbol files; switch to shlibs instead.
+
+  [ gregor herrmann ]
+  * Sponsor NMU (closes: #957420).
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 06 Dec 2020 02:27:21 +0100
+
 lib3mf (1.8.1+ds-3) unstable; urgency=medium
 
   * Update symbol file for amd64 (Closes: #924841)
