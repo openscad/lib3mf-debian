@@ -1,3 +1,10 @@
+lib3mf (1.8.1+ds-4) unstable; urgency=medium
+
+  * Fix use-after-free (CVE-2021-21772), backporting fix from v2.1.1
+    (Closes: #985092)
+
+ -- Kristian Nielsen <knielsen@knielsen-hq.org>  Thu, 01 Apr 2021 21:25:54 +0200
+
 lib3mf (1.8.1+ds-3.1) unstable; urgency=medium
 
   * Non-maintainer upload.
