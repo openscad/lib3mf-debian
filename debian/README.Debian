@@ -1,7 +1,8 @@
 lib3mf for Debian
 
 The upstream library embeds the libzip and zlib libraries.
-Both are removed from the Debian build, so it is required
-to add both to the linker flags.
+Both are removed from the Debian build.  They are still included in
+the pkgconfig control file, as with upstream, but in the Debian build
+they are also included in the library's runtime dependencies.
 
- -- Torsten Paul <Torsten.Paul@gmx.de>  Sat, 29 Dec 2018 12:33:54 +0100
+ -- Joel Ray Holveck <joelh@piquan.org>  Fri, 25 Sep 2020 20:20:30 -0700

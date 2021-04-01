@@ -1,0 +1,17 @@
+Index: lib3mf-1.8.1+ds/CMakeLists.txt
+===================================================================
+--- lib3mf-1.8.1+ds.orig/CMakeLists.txt
++++ lib3mf-1.8.1+ds/CMakeLists.txt
+@@ -113,6 +113,12 @@ if (UNIX OR MINGW)
+ 			message(FATAL_ERROR "libuuid not found")
+ 		endif()
+ 		target_link_libraries(${PROJECT_NAME}_s ${LIBUUID_PATH})
++                if(NOT USE_INCLUDED_LIBZIP)
++		        target_link_libraries(${PROJECT_NAME}_s zip)
++                endif()
++                if(NOT USE_INCLUDED_ZLIB)
++		        target_link_libraries(${PROJECT_NAME}_s z)
++                endif()
+ 	endif()
+ else()
+ 	# wd4996 masks the deprecated-warning
