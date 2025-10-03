@@ -1,2 +1,4 @@
 link-z.patch
 fix_use_after_free.patch
+lib3mf_libzip_incompatibility.patch
+fix_build_with_cmake_4.patch

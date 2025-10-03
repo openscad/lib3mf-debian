@@ -1,0 +1,34 @@
+From: Kristian Nielsen <knielsen@knielsen-hq.org>
+Date: Thu, 24 Oct 2024 11:58:42 +0100
+Subject: Fix incompatibility with libzip >= 1.9.0
+
+Newer libzip requires that callback functions support the
+ZIP_SOURCE_FREE command.
+
+Origin: upstream, https://github.com/3MFConsortium/lib3mf/commit/20a447392385fd14cba2dd07a908e1908490b195
+Forwarded: not-needed
+Applied-Upstream: https://github.com/3MFConsortium/lib3mf/commit/20a447392385fd14cba2dd07a908e1908490b195
+---
+
+diff -u a/Source/Common/OPC/NMR_OpcPackageReader.cpp b/Source/Common/OPC/NMR_OpcPackageReader.cpp
+--- a/Source/Common/OPC/NMR_OpcPackageReader.cpp
++++ b/Source/Common/OPC/NMR_OpcPackageReader.cpp
+@@ -54,7 +54,7 @@
+ 			case ZIP_SOURCE_SUPPORTS:
+ 				zip_int64_t bitmap;
+ 				bitmap = zip_source_make_command_bitmap(ZIP_SOURCE_OPEN, ZIP_SOURCE_READ, ZIP_SOURCE_CLOSE,
+-					ZIP_SOURCE_STAT, ZIP_SOURCE_ERROR, ZIP_SOURCE_SEEK, ZIP_SOURCE_TELL, ZIP_SOURCE_SUPPORTS, -1);
++					ZIP_SOURCE_STAT, ZIP_SOURCE_FREE, ZIP_SOURCE_ERROR, ZIP_SOURCE_SEEK, ZIP_SOURCE_TELL, ZIP_SOURCE_SUPPORTS, -1);
+ 				return bitmap;
+ 
+ 			case ZIP_SOURCE_SEEK:
+@@ -86,6 +86,9 @@
+ 			case ZIP_SOURCE_TELL:
+ 				return pImportStream->getPosition();
+ 
++			case ZIP_SOURCE_FREE:
++				return 0;
++
+ 			case ZIP_SOURCE_STAT:
+ 				zip_stat_t* zipStat;
+ 				zipStat  = (zip_stat_t*)data;
