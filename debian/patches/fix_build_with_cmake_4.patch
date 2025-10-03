@@ -1,0 +1,18 @@
+Description: Fix build with Cmake 4
+Author: Kristian Nielsen <knielsen@knielsen-hq.org>
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1113104
+Forwarded: not-needed
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,8 +1,4 @@
+-cmake_minimum_required (VERSION 3.0.2)
+-
+-IF (NOT ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} LESS 3.1)
+-  cmake_policy(SET CMP0054 OLD)
+-ENDIF ()
++cmake_minimum_required (VERSION 3.13)
+ 
+ # Define Project and Version Numbers
+ # increase major version on every backward-compatibility breaking change of the API

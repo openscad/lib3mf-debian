@@ -1,3 +1,9 @@
+lib3mf (1.8.1+ds-6) unstable; urgency=medium
+
+  * Fix build with Cmake 4. Closes: 1113104
+
+ -- Kristian Nielsen <knielsen@knielsen-hq.org>  Fri, 03 Oct 2025 20:17:03 +0200
+
 lib3mf (1.8.1+ds-5) unstable; urgency=medium
 
   * Fix incompatibility with libzip >= 1.9.0.
